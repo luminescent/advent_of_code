@@ -1,6 +1,5 @@
 package day_1
 
-import com.sun.corba.se.spi.monitoring.StatisticsAccumulator
 
 /**
   * Created by christina on 16/12/15.
@@ -11,6 +10,7 @@ object FloorsOperator {
     input.foldLeft(0)(_ + countFloor(_))
   }
 
+  // for illustration purposes (no dependencies)
   def countFloors2(input: String): Int = {
     input.foldLeft(0)(
       (total, floor) => total + (floor match {
