@@ -1,4 +1,4 @@
-package day_1
+package common
 
 /**
   * Created by christina on 16/12/15.

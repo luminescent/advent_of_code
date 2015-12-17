@@ -1,5 +1,7 @@
 package day_1
 
+import common.InputReader
+
 /**
   * Created by christina on 16/12/15.
   */
