@@ -7,7 +7,7 @@ import common.InputReader
   */
 object Runner extends App {
 
-  val input = InputReader read "/home/christina/projects/advent_of_code/src/main/scala/day_1/A.txt"
+  val input = InputReader read "/home/christina/IdeaProjects/advent_of_code/src/main/scala/day_1/A.txt"
 
   Console.println(s"Floors: ${ FloorsOperator countFloors input}")
   Console.println(s"Basement: ${ FloorsOperator findBasement input}")
