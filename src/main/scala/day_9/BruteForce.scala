@@ -80,7 +80,7 @@ object BruteForce {
       .sliding(2)
       .map {
         case Seq(a, b) =>
-          graph.getOrElse(Edge(a, b), graph.getOrElse(Edge(b, a), 10000))
+          graph.getOrElse(Edge(a, b), graph.getOrElse(Edge(b, a), 0))
       }
       .sum
 

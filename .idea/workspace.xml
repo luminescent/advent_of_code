@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1b21a10-2114-45e7-922f-114be9310e84" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/day_9/A.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/day_9/BruteForce.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/day_9/PrimsAlgorithm.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/day_9/Runner.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/day_9/BruteForce.scala" afterPath="$PROJECT_DIR$/src/main/scala/day_9/BruteForce.scala" />
     </list>
     <ignored path="advent_of_code.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrimsAlgorithm.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PrimsAlgorithm.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/day_9/PrimsAlgorithm.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22929937">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -76,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BruteForce.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BruteForce.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/day_9/BruteForce.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="73" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.5987261">
+              <caret line="82" column="67" selection-start-line="82" selection-start-column="67" selection-end-line="82" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -179,8 +175,8 @@
         <option value="$PROJECT_DIR$/src/main/scala/day_8/Runner.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/day_9/A.txt" />
         <option value="$PROJECT_DIR$/src/main/scala/day_9/PrimsAlgorithm.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/day_9/BruteForce.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/day_9/Runner.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/day_9/BruteForce.scala" />
       </list>
     </option>
   </component>
@@ -1272,18 +1268,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/day_9/BruteForce.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/day_9/PrimsAlgorithm.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="73" selection-end-column="14" />
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/day_9/PrimsAlgorithm.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/day_9/BruteForce.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22929937">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5987261">
+          <caret line="82" column="67" selection-start-line="82" selection-start-column="67" selection-end-line="82" selection-end-column="67" />
           <folding />
         </state>
       </provider>
