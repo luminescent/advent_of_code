@@ -36,7 +36,9 @@ class Password(value: String)  {
   }
 
   def hasDecreasingSequence(list: mutable.MutableList[Int]): Boolean = {
-    list.sliding(3).exists(isDecreasing)
+    list
+      .sliding(3)
+      .exists(isDecreasing)
   }
 
   def hasDistinctNonOverlappingGroupsOfDoubleLetters(list: mutable.MutableList[Int]): Boolean = {
