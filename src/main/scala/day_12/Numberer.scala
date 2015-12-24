@@ -1,7 +1,5 @@
 package day_12
 
-import com.sun.corba.se.spi.orbutil.fsm.Input
-
 import scala.StringBuilder
 import scala.collection.mutable
 
@@ -40,7 +38,7 @@ object Numberer {
         }
         case _ => {}
       }
-    ) 
+    )
      
     sumToken(input, tokensPositions.find(_.start == 0).get, tokensPositions)
   }
