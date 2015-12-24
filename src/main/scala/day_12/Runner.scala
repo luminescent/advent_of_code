@@ -8,13 +8,10 @@ import common.InputReader
 object Runner extends App {
   
   
-  val s = "abcdef"
-  println(s.substring(0, 3))
-
   val input = InputReader read "/home/christina/IdeaProjects/advent_of_code/src/main/scala/day_12/A.txt"
-  //println(s"Total: ${Numberer sum input}")
+  println(s"Total: ${Numberer sum input}")
 
-  //println(s"Total without red properties: ${Numberer sumWithoutRed input}")
+  println(s"Total without red properties: ${Numberer sumWithoutRed input}")
 
 
 }

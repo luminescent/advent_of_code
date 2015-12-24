@@ -34,38 +34,33 @@ object RegisterJumper {
           registers(r) = regValue + 1
           computeInstruction(index + 1, lines, registers)
         }
-        case Array("jmp", offset) => {
-          offset(0) match {
-            case '+' => computeInstruction(index + offset.takeRight(offset.length - 1).toInt, lines, registers)
-            case '-' => computeInstruction(index - offset.takeRight(offset.length - 1).toInt, lines, registers)
-          }
-        }
+        case Array("jmp", offset) => 
+          computeInstruction(index + getOffsetValue(offset), lines, registers)
         case Array("jie", reg, offset) => {
           val r = reg.substring(0, reg.length - 1)
-          val regValue = registers.getOrElse(r, 0)
-          val offsetValue = offset(0) match {
-            case '+' => offset.takeRight(offset.length - 1).toInt
-            case '-' => -1 * offset.takeRight(offset.length - 1).toInt
+
+          registers.getOrElse(r, 0) % 2 match  {
+            case 0 => computeInstruction(index + getOffsetValue(offset), lines, registers)
+            case _ => computeInstruction(index + 1, lines, registers)
           }
-          if (regValue % 2 == 0)
-            computeInstruction(index + offsetValue, lines, registers)
-          else
-            computeInstruction(index + 1, lines, registers)
         }
         case Array("jio", reg, offset) => {
           val r = reg.substring(0, reg.length - 1)
-          val regValue = registers.getOrElse(r, 0)
-          val offsetValue = offset(0) match {
-            case '+' => offset.takeRight(offset.length - 1).toInt
-            case '-' => -1 * offset.takeRight(offset.length - 1).toInt
+
+          registers.getOrElse(r, 0) match {
+            case 1 => computeInstruction(index + getOffsetValue(offset), lines, registers)
+            case _ => computeInstruction(index + 1, lines, registers)
           }
-          if (regValue == 1) 
-            computeInstruction(index + offsetValue, lines, registers)
-          else 
-            computeInstruction(index + 1, lines, registers)
         }
         case _ => println(s"Unable to parse instruction ${lines(index)}")
       }
+    }
+  }
+  
+  private def getOffsetValue(offset: String): Int = {
+    offset(0) match {
+      case '+' => offset.takeRight(offset.length - 1).toInt
+      case '-' => -1 * offset.takeRight(offset.length - 1).toInt
     }
   }
 
