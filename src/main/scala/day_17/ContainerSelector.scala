@@ -9,27 +9,29 @@ object ContainerSelector {
 
   def countContainers(lines: List[String], total: Int) : Int = {
 
-    val containers = lines.map(s => s.toInt)
-
-    selectContainers(containers, total, List[Int]())
+    selectContainers(lines.map(s => s.toInt), total, List[Int]())
 
     containersByCount(containersByCount.keys.min)
   }
 
   var containersByCount = mutable.Map[Int, Int]()
 
+
+
   def selectContainers(containers: List[Int], total: Int, selection: List[Int]): Unit = {
+
     val totalForSelection = getTotalForSelection(containers, selection)
 
     totalForSelection match {
       case x if x <= total =>
         selection.length match {
-          case y if y == containers.length => totalForSelection match {
-            case z if z == total =>
-              val selected = selection.count(c => c == 1)
-              val selectedCount = containersByCount.getOrElse(selected, 0)
-              containersByCount(selected) = selectedCount + 1
-            case _ =>
+          case y if y == containers.length =>
+            totalForSelection match {
+              case z if z == total =>
+                val selected = selection.count(c => c == 1)
+                val selectedCount = containersByCount.getOrElse(selected, 0)
+                containersByCount(selected) = selectedCount + 1
+              case _ =>
           }
           case _ =>
             (0 to 1)
