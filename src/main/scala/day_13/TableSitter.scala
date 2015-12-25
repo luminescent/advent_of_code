@@ -17,7 +17,8 @@ object TableSitter {
     val regexLoose = List(" would lose ", " happiness units by sitting next to ", "\\.").mkString("|").r
 
 
-    val graph = lines.map(line => regexGain.split(line) match {
+    val graph = lines
+      .map(line => regexGain.split(line) match {
         case Array(main, happiness, nextTo) => Pair(main, nextTo) -> happiness.toInt
         case _ => regexLoose.split(line) match {
           case Array(main, happiness, nextTo) => Pair(main, nextTo) -> -1 * happiness.toInt
