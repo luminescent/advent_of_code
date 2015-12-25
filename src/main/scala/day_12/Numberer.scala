@@ -53,7 +53,6 @@ object Numberer {
     
     val topMostNonOverlappingTokens = innerTokens
       .filter(t => !innerTokens.exists(biggerToken => biggerToken.start < t.start && biggerToken.end > t.end))
-      .toList
       .sortBy(t1 => t1.start)
     
 
