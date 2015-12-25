@@ -32,10 +32,7 @@ object TableSitter {
       .flatMap(node => List(Pair("me", node) -> 0, Pair(node, "me") -> 0))
       .toMap
 
-    val wholeGraph = graph ++ meGraph
-
-    val elements = List("Alice")
-    computeHappiness(nodes + "me", wholeGraph, elements)
+    computeHappiness(nodes + "me", graph ++ meGraph, List("Alice"))
 
     max
   }

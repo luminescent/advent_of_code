@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1b21a10-2114-45e7-922f-114be9310e84" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/day_14/A.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/day_14/ReindeerContest.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/day_14/Runner.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/day_13/TableSitter.scala" afterPath="$PROJECT_DIR$/src/main/scala/day_13/TableSitter.scala" />
     </list>
     <ignored path="advent_of_code.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,15 +33,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ReindeerContest.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReindeerContest.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/day_14/ReindeerContest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62798095">
+            <state vertical-scroll-proportion="0.0">
               <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
               <folding>
                 <element signature="e#205#688#0" expanded="false" />
                 <element signature="e#693#1416#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Runner.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/day_13/Runner.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -68,11 +76,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TableSitter.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TableSitter.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/day_13/TableSitter.scala">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.112877585">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="A.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/day_13/A.txt">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="65" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="65" />
+              <caret line="46" column="61" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -134,10 +152,10 @@
         <option value="$PROJECT_DIR$/src/main/scala/day_12/Runner.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/day_13/Runner.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/day_13/A.txt" />
-        <option value="$PROJECT_DIR$/src/main/scala/day_13/TableSitter.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/day_14/A.txt" />
         <option value="$PROJECT_DIR$/src/main/scala/day_14/Runner.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/day_14/ReindeerContest.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/day_13/TableSitter.scala" />
       </list>
     </option>
   </component>
@@ -317,7 +335,7 @@
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
   </component>
-  <component name="RunManager" selected="Application.Runner (2)">
+  <component name="RunManager" selected="Application.Runner (1)">
     <configuration default="false" name="Runner (3)" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -733,8 +751,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Runner (2)" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Runner (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Runner (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Runner (2)" />
         <item index="2" class="java.lang.String" itemvalue="Application.Runner" />
         <item index="3" class="java.lang.String" itemvalue="Application.Runner (5)" />
         <item index="4" class="java.lang.String" itemvalue="Application.Runner (3)" />
@@ -1243,30 +1261,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/day_13/A.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5707472">
-          <caret line="46" column="61" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/day_13/TableSitter.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="65" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/day_13/Runner.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25755167">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/day_14/A.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1285,12 +1279,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/day_14/ReindeerContest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62798095">
+        <state vertical-scroll-proportion="0.0">
           <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
           <folding>
             <element signature="e#205#688#0" expanded="false" />
             <element signature="e#693#1416#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/day_13/A.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="61" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/day_13/Runner.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/day_13/TableSitter.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.112877585">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
