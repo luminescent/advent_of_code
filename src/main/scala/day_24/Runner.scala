@@ -12,5 +12,6 @@ object Runner extends App {
     .map(l => l.toInt)
     .sum / 3, lines.length)
 
-  println(s"Smalled QE of ideal group: ${SleightBalancer getQEForSmallestNoOfPackages lines}" ) // 11846773891
+  //println(s"Smalled QE of ideal group: ${SleightBalancer getQEForSmallestNoOfPackages lines}" ) // 11846773891
+  println(s"Smalled QE of ideal group: ${SleighBalancerPart2 getQEForSmallestNoOfPackages lines}" ) // 11846773891
 }
