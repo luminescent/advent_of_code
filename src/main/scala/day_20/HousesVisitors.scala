@@ -46,11 +46,5 @@ object HousesVisitors {
     sieve.indexWhere(p => p >= total)
   }
 
-  def countPresents(n: Int) : Int = {
-    (2 to n/2)
-      .filter(d => n % d == 0)
-      .map(d => d * 10)
-      .sum + 10 + n * 10
-  }
 
 }

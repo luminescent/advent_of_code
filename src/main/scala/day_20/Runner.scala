@@ -5,6 +5,6 @@ package day_20
   */
 object Runner extends App {
 
-  //println(s"First house: ${HousesVisitors findHouseWithSmallestNumber 33100000}")
+  println(s"First house: ${HousesVisitors findHouseWithSmallestNumber 33100000}")
   println(s"First house: ${HousesVisitors findHouseWithSmallestNumber2 33100000}")
 }
