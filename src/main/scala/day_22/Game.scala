@@ -148,7 +148,7 @@ object Game {
           nextSpells.foreach(spell => {
             val newManaCost = manaSpent + spell.cost
 
-            val (wizardAfterSpell, bossAfterSpell, newSpell) =
+            val (wizardAfterSpell, bossAfterSpell, remainingSpell) =
               applyEffectsOnTurn(postEffectWizPlayerTurn, postEffectBossPlayerTurn, Set(spell).map(s => s -> s.effect).toMap)
 
             val payingWiz = paySpell(wizardAfterSpell, spell)
@@ -160,7 +160,7 @@ object Game {
                   println(s"Min mana so far $minMana")
                 }
               case _ =>
-                val effectsWithSpell = remainingEffects ++ newSpell
+                val effectsWithSpell = remainingEffects ++ remainingSpell
 
                 // we have to apply effects on this turn too
                 val (postEffectWizardBossTurn, postEffectBossBossTurn, effectsOnBossTurn) = applyEffectsOnTurn(payingWiz, bossAfterSpell, effectsWithSpell)

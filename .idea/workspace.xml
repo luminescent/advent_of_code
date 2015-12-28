@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1b21a10-2114-45e7-922f-114be9310e84" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/day_22/Game.scala" afterPath="$PROJECT_DIR$/src/main/scala/day_22/Game.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/day_25/CodeGenerator.scala" afterPath="$PROJECT_DIR$/src/main/scala/day_25/CodeGenerator.scala" />
     </list>
     <ignored path="advent_of_code.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,8 +45,8 @@
       <file leaf-file-name="Game.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/day_22/Game.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.952518">
-              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7151079">
+              <caret line="164" column="60" selection-start-line="164" selection-start-column="60" selection-end-line="164" selection-end-column="60" />
               <folding>
                 <element signature="e#550#753#0" expanded="false" />
                 <element signature="e#1151#1328#0" expanded="false" />
@@ -200,9 +198,9 @@
         <option value="$PROJECT_DIR$/src/main/scala/day_24/Runner.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/day_25/Runner.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/day_22/Runner.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/day_22/Game.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/day_25/CodeGenerator.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/day_25/DiagonalMatrixValueFinder.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/day_22/Game.scala" />
       </list>
     </option>
   </component>
@@ -1388,8 +1386,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/day_22/Game.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.952518">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7151079">
+          <caret line="164" column="60" selection-start-line="164" selection-start-column="60" selection-end-line="164" selection-end-column="60" />
           <folding>
             <element signature="e#550#753#0" expanded="false" />
             <element signature="e#1151#1328#0" expanded="false" />
