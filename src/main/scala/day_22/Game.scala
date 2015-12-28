@@ -33,7 +33,7 @@ object Game {
 //    val wizard = new Player("Wizard", 10, 0, 250)
 //    val boss = new Player("Boss", 14, 8, 0)
 
-    play(wizard, boss, Map[Spell, Int](), 0, 0)
+    play2(wizard, boss, Map[Spell, Int](), 0)
 
     minMana
   }
@@ -58,111 +58,133 @@ object Game {
     boss.copy(hitPoints = boss.hitPoints - effects.map(e => e.damage).sum)
   }
 
-  def applyBossAttack(wizard: Player, boss: Player, effects: Set[Spell]): Player = {
-    val additionalArmour = effects.map(e => e.armour).sum
-
-    wizard.copy(hitPoints = wizard.hitPoints - Math.max(boss.damage - additionalArmour, 1))
+  def applyBossAttack(wizard: Player, boss: Player, armour: Int): Player = {
+    wizard.copy(hitPoints = wizard.hitPoints - Math.max(boss.damage - armour, 1))
   }
 
+  def applyEffectsOnTurn(player1: Player, player2: Player, runningEffects: Map[Spell, Int]): (Player, Player, Map[Spell, Int]) = {
+
+    val wizard = player1.name match {
+      case "Boss" => player2
+      case _ => player1
+    }
+    val boss = player1.name match {
+      case "Boss" => player1
+      case _ => player2
+    }
+
+    val newWizard = applyEffectsOnWizard(wizard, runningEffects.keySet)
+    val newBoss = applyEffectsOnBoss(boss, runningEffects.keySet)
+
+    val newEffects = runningEffects
+      .map(e => e._1 -> (e._2 - 1))
+      .filter(_._2 > 0)
+
+    (newWizard, newBoss, newEffects)
+  }
 
   var minMana = 100000000
   var winners = mutable.Set[Player]()
 
-  // this runs a player turn and a boss turn or stops if one of them won
-  def play(wizard: Player, boss: Player, runningEffects: Map[Spell, Int], manaSpent: Int, runs: Int): Unit = {
+  def getArmour(runningEffects: Map[Spell, Int]): Int = {
+    val hasArmour = runningEffects.find(e => e._1.armour > 0)
+    hasArmour match {
+      case None => 0
+      case Some(a) => a._1.armour
+    }
+  }
 
+
+
+  def play3(player1: Player, player2: Player, runningEffects: Map[Spell, Int], manaSpent: Int, runs: Int): Unit = {
     if (manaSpent <= minMana) {
-//      println("--- Player turn ---")
-//      println("Player", wizard)
-//      println("Boss", boss)
-//      println("Running effects", runningEffects)
 
-      val newWizard = applyEffectsOnWizard(wizard, runningEffects.keySet)
-      //println("Player after running effects", newWizard)
+      val (wizard, boss, remainingEffects) = applyEffectsOnTurn(player1, player2, runningEffects)
 
-      val newBoss = applyEffectsOnBoss(boss, runningEffects.keySet)
-      //println("Boss after running effects", newBoss)
+      player1.name match {
+        case "Wizard" =>
+          boss.hitPoints match {
+            case x if x <= 0 => if (manaSpent < minMana) {
+              minMana = manaSpent
+              println(s"Min mana so far $minMana")
+            }
+            case _ =>
+              val nextSpells = getNextSpells(wizard.mana, spells, remainingEffects.keySet)
+              nextSpells.foreach(spell => {
+                val newWizard = paySpell(wizard, spell)
+                play3(boss, newWizard, remainingEffects + (spell -> spell.effect), manaSpent + spell.cost, runs)
+              })
+          }
 
-      // remove expired effects
-      val newEffects =
-        runningEffects
-          .map(s => s._1 -> (s._2 - 1))
-          .filter(f => f._2 > 0)
+        case _ =>
+          boss.hitPoints match {
+            case x if x <= 0 => if (manaSpent < minMana) {
+              minMana = manaSpent
+              println(s"Min mana so far $minMana")
+            }
+            case _ =>
+              // we have to look before applying the effect as armour does not get saved against the wizard
+              val armour = getArmour(runningEffects)
+              val newWizard = applyBossAttack(wizard, boss, armour)
+              // check points
+              if (newWizard.hitPoints > 0)
+                play3(newWizard, boss, remainingEffects, manaSpent, runs + 1)
+          }
+      }
+    }
+  }
 
-      //println("After removing expired effects: ", newEffects)
+  def play2(wizard: Player, boss: Player, runningEffects: Map[Spell, Int], manaSpent: Int): Unit = {
 
-      val newSpells = getNextSpells(newWizard.mana, spells, newEffects.keySet)
-      //val newSpells = testSpells(runs)
+    if (manaSpent <= minMana){
 
-      newSpells.size match {
-        case 0 => { } //println("Boss won as no new spells were available") }
-        case _ => {
-          // foreach spell play boss
-          // add it to running effects and call play again
+      val hardWiz = wizard.copy(hitPoints = wizard.hitPoints - 1)
+      if (hardWiz.hitPoints > 0) {
 
-          newSpells.foreach(spell => {
+        val(postEffectWizPlayerTurn, postEffectBossPlayerTurn, remainingEffects) = applyEffectsOnTurn(hardWiz, boss, runningEffects)
+        if (postEffectBossPlayerTurn.hitPoints > 0) {
 
-            val newWizardAfterPaying = paySpell(newWizard, spell)
-//            println("Player", newWizard , "casts", spell, "and is now", newWizardAfterPaying)
-            val newWizardAfterSpell = applyEffectsOnWizard(newWizardAfterPaying, Set(spell))
-
-
-//            println("--- Boss turn ---")
-//            println("Initial", newWizardAfterSpell, newBoss)
-
-            val newBossAE = applyEffectsOnBoss(newBoss, newEffects.keySet)
-            //println("Boss after running effects", newBossAE)
-
-            // remove expired effects
-            val newEffectsAfterApplyingOnBoss =
-              newEffects
-                .map(s => s._1 -> (s._2 - 1))
-                .filter(f => f._2 > 0)
-
-            //println("After removing expired effects: ", newEffectsAfterApplyingOnBoss)
-
-            val newBossWithSpell = applyEffectsOnBoss(newBossAE, Set(spell))
-            //println("Boss after spell", newBossWithSpell)
-
-            // we applied it once
-            val newRunningEffects =
-              (newEffectsAfterApplyingOnBoss + (spell -> (spell.effect - 1)))
-                .filter(s => s._2 > 0)
-
-            //println("New running effects", newRunningEffects)
-
+          val nextSpells = getNextSpells(postEffectWizPlayerTurn.mana, spells, remainingEffects.keySet)
+          nextSpells.foreach(spell => {
             val newManaCost = manaSpent + spell.cost
-//            println("Mana spent so far", newManaCost)
 
-            newBossWithSpell.hitPoints match {
-              case x if x <= 0 => {
-//                println(s"Wizard won; mana spent: $newManaCost")
+            val (wizardAfterSpell, bossAfterSpell, newSpell) =
+              applyEffectsOnTurn(postEffectWizPlayerTurn, postEffectBossPlayerTurn, Set(spell).map(s => s -> s.effect).toMap)
+
+            val payingWiz = paySpell(wizardAfterSpell, spell)
+
+            bossAfterSpell.hitPoints match {
+              case z if z <= 0 =>
                 if (newManaCost < minMana) {
                   minMana = newManaCost
                   println(s"Min mana so far $minMana")
                 }
-              }
-              case _ => {
-                // boss attacks
-                val newWizardAfterBossAttack = applyBossAttack(newWizardAfterSpell, newBossWithSpell, newRunningEffects.keySet)
-                //println("Boss attacks and this is new wizard", newWizardAfterBossAttack)
-                // run the game again
-//                println("Moving to new step", newWizardAfterBossAttack, newBossWithSpell, newRunningEffects)
-                newWizardAfterBossAttack.hitPoints match {
-                  case y if y <= 0 => println("Wizard looses")
-                  case _ => play(newWizardAfterBossAttack, newBossWithSpell, newRunningEffects, newManaCost, runs + 1)
-                }
-              }
-            }
+              case _ =>
+                val effectsWithSpell = remainingEffects ++ newSpell
 
+                // we have to apply effects on this turn too
+                val (postEffectWizardBossTurn, postEffectBossBossTurn, effectsOnBossTurn) = applyEffectsOnTurn(payingWiz, bossAfterSpell, effectsWithSpell)
+                postEffectBossBossTurn.hitPoints match {
+                  case w if w <= 0 =>
+                    if (newManaCost < minMana) {
+                      minMana = newManaCost
+                      println(s"Min mana so far $minMana")
+                    }
+                  case _ =>
+                    val armour = getArmour(effectsWithSpell)
+                    val attackedWiz = applyBossAttack(postEffectWizardBossTurn, postEffectBossBossTurn, armour)
+                    if (attackedWiz.hitPoints > 0)
+                      play2(attackedWiz, postEffectBossBossTurn, effectsOnBossTurn, newManaCost)
+                }
+            }
           })
 
         }
+
       }
 
     }
-
-
   }
+
 
 }

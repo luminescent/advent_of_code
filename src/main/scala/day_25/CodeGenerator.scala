@@ -14,12 +14,9 @@ object CodeGenerator {
   private def powModulo(a: Long, n:Long, b:Long): Long = {
 
     val constant = a % b
-    var accumulator = constant
-
     (2 to n.toInt)
-      .foreach(i => accumulator = (constant * accumulator) % b)
+      .foldLeft(constant)((total, i) => (constant * total) % b)
 
-    accumulator
   }
 
 }
